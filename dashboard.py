@@ -55,7 +55,7 @@ min_date = all_df["dteday"].min()
 max_date = all_df["dteday"].max()
 
 with st.sidebar:
-    st.image("https://em-content.zobj.net/source/twitter/53/bicycle_1f6b2.png")
+    st.image("https://cdn-icons-png.flaticon.com/512/3097/3097180.png")
     
     start_date, end_date = st.date_input(
         label='Rentang Waktu',
