@@ -194,15 +194,19 @@ st.pyplot(fig)
 st.subheader('Seasonal Rentals')
 
 fig, ax = plt.subplots(figsize=(10, 6))
-colors_season = ["#72BCD4", "#90CAF9", "#64B5F6", "#42A5F5"]
 
 season_data = season_rentals_df.sort_values('cnt', ascending=False)
+
+colors_season = ['#72BCD4' if x == season_data['cnt'].max() else '#D3D3D3' for x in season_data['cnt']]
+
 ax.bar(season_data['season_name'], season_data['cnt'], color=colors_season)
 ax.set_title('Average Bike Rentals by Season', fontsize=20)
 ax.set_xlabel('Season', fontsize=15)
 ax.set_ylabel('Average Rentals', fontsize=15)
 ax.tick_params(axis='x', labelsize=12)
 ax.tick_params(axis='y', labelsize=12)
+
+ax.yaxis.set_major_formatter(ticker.StrMethodFormatter('{x:,.0f}'))
 
 st.pyplot(fig)
 
